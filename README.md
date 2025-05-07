@@ -38,6 +38,11 @@ python elect.py <round_number>
 python check_votes.py <round_number>
 ```
 
+Alternatively, you can run the entire conclave simulation at once using:
+```bash
+python run.py
+```
+
 ## How it Works
 
 1. `scrape.py` generates detailed persona prompts for each cardinal based on their background and history.
