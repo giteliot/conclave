@@ -1,0 +1,4 @@
+# Ignore contents of backup directory
+data/backup/* 
+data/images/*
+results.ipynb

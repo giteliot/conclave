@@ -15,7 +15,7 @@ def main(round: int) -> List[Tuple[str, int, float]]:
     for filename in os.listdir(votes_dir):
         if filename.endswith('.txt'):
             with open(os.path.join(votes_dir, filename), 'r') as f:
-                vote = f.read().strip()
+                vote = f.read().strip().replace('\n', '').replace('\r', '')
                 vote_counts[vote] += 1
     
     # Calculate total votes

@@ -8,7 +8,7 @@ import sys
 
 ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 API_KEY = os.getenv("OR_KEY")
-MODEL = "google/gemini-2.5-flash-preview"
+MODEL = "openai/gpt-4o-mini"
 PROMPTS_DIR = "./data/prompts"
 
 def get_cardinal_vote(cardinal: str, candidates: list, round: int, last_result: str, api_key: str) -> str:
@@ -94,11 +94,9 @@ def main(round: int):
         # Process completed tasks as they finish
         for future in as_completed(future_to_cardinal):
             cardinal_name = future_to_cardinal[future]
-            try:
-                future.result()
-                print(f"Completed processing {cardinal_name}")
-            except Exception as e:
-                print(f"Error processing {cardinal_name}: {str(e)}")
+            future.result()
+            print(f"Completed processing {cardinal_name}")
+
 
 if __name__ == "__main__":
     
